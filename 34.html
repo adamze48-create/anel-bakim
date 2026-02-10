@@ -18,13 +18,13 @@
             .btn-submit { background: #28a745; color: white; border: none; margin-top: 25px; cursor: pointer; font-weight: bold; }
             .item-group { display: none; margin-top: 15px; border-top: 2px solid #24292e; padding-top: 10px; }
             .item { display: flex; align-items: center; padding: 10px 0; border-bottom: 1px solid #eee; }
-            input[type="checkbox"] { width: 22px; height: 22px; margin-right: 12px; }
+            input[type="checkbox"] { width: 22px; height: 22px; margin-right: 12px; cursor:pointer; }
             .period-title { background: #e9ecef; padding: 5px 10px; border-radius: 4px; font-size: 0.9em; color: #003366; display: block; margin-top: 10px; font-weight:bold; }
         </style>
     </head>
     <body>
         <div class="card">
-            <div class="header"><h2 style="margin:0;">DİJİTAL TERAZİ - SN: 1512EC152359</h2><p style="margin:5px 0 0 0;">S-KE206.03.011</p></div>
+            <div class="header"><h2>DİJİTAL TERAZİ - SN: 1512EC152359</h2><p>S-KE206.03.011</p></div>
             <div class="content">
                 <div id="login-section">
                     <label>Personel Seçin:</label>
@@ -37,9 +37,8 @@
                     <button type="button" class="btn-login" onclick="verifyUser()">GİRİŞ YAP</button>
                 </div>
 
-                <form id="main-form" action="https://formsubmit.co/haskaya2941@gmail.com" method="POST">
+                <form id="main-form" action="https://formsubmit.co/seninmailin@gmail.com" method="POST" onsubmit="return validateMaintenance()">
                     <input type="hidden" name="_captcha" value="false">
-                    <input type="hidden" name="_subject" value="Yeni Bakım Kaydı: S-KE206.03.011">
                     <input type="hidden" name="_template" value="table">
                     <input type="hidden" id="hidden_personel" name="Personel">
                     <input type="hidden" name="Makine" value="S-KE206.03.011 - DİJİTAL TERAZİ - SN: 1512EC152359">
@@ -60,13 +59,14 @@
                     </div>
                     <label>Eksik Hususlar / Notlar:</label>
                     <textarea name="Notlar" placeholder="Varsa arıza veya eksikleri buraya yazın..."></textarea>
-                    <button type="submit" class="btn-submit">✅ KAYDET VE MAİLE GÖNDER</button>
+                    <button type="submit" class="btn-submit">✅ KAYDI TAMAMLA VE GÖNDER</button>
                 </form>
             </div>
         </div>
 
         <script>
         const passwords = {'Ahmet Yılmaz': '1111', 'Mehmet Demir': '2222', 'Sami Kaya': '3333', 'Hasan Kaya': '1234', 'Operatör': '0000'};
+
         function verifyUser() {
             const user = document.getElementById('personel_secici').value;
             const pass = document.getElementById('sifre_input').value;
@@ -76,12 +76,34 @@
                 document.getElementById('hidden_personel').value = user;
             } else { alert("Hatalı kullanıcı veya şifre!"); }
         }
+
         function periyotGuncelle() {
             const seviye = parseInt(document.getElementById("periyotSecici").value);
             for (let i = 1; i <= 6; i++) { document.getElementById("grp_" + i).style.display = "none"; }
             if (seviye) {
                 for (let i = 1; i <= seviye; i++) { document.getElementById("grp_" + i).style.display = "block"; }
             }
+        }
+
+        function validateMaintenance() {
+            const seviye = parseInt(document.getElementById("periyotSecici").value);
+            if (!seviye) { alert("Lütfen bir bakım periyodu seçin!"); return false; }
+
+            // Görünür olan tüm gruplardaki checkbox'ları kontrol et
+            let allChecked = true;
+            for (let i = 1; i <= seviye; i++) {
+                const group = document.getElementById("grp_" + i);
+                const checkboxes = group.querySelectorAll('input[type="checkbox"]');
+                checkboxes.forEach(cb => {
+                    if (!cb.checked) { allChecked = false; }
+                });
+            }
+
+            if (!allChecked) {
+                alert("HATA: Seçilen periyottaki tüm maddeleri işaretlemeniz gerekmektedir. Lütfen kontrol edip eksik maddeleri tamamlayın.");
+                return false;
+            }
+            return true;
         }
         </script>
     </body>

@@ -18,13 +18,13 @@
             .btn-submit { background: #28a745; color: white; border: none; margin-top: 25px; cursor: pointer; font-weight: bold; }
             .item-group { display: none; margin-top: 15px; border-top: 2px solid #24292e; padding-top: 10px; }
             .item { display: flex; align-items: center; padding: 10px 0; border-bottom: 1px solid #eee; }
-            input[type="checkbox"] { width: 22px; height: 22px; margin-right: 12px; }
+            input[type="checkbox"] { width: 22px; height: 22px; margin-right: 12px; cursor:pointer; }
             .period-title { background: #e9ecef; padding: 5px 10px; border-radius: 4px; font-size: 0.9em; color: #003366; display: block; margin-top: 10px; font-weight:bold; }
         </style>
     </head>
     <body>
         <div class="card">
-            <div class="header"><h2 style="margin:0;">El Presi Darbeli</h2><p style="margin:5px 0 0 0;">S-MKN.A02.04.27</p></div>
+            <div class="header"><h2>El Presi Darbeli</h2><p>S-MKN.A02.04.27</p></div>
             <div class="content">
                 <div id="login-section">
                     <label>Personel Seçin:</label>
@@ -37,9 +37,8 @@
                     <button type="button" class="btn-login" onclick="verifyUser()">GİRİŞ YAP</button>
                 </div>
 
-                <form id="main-form" action="https://formsubmit.co/haskaya2941@gmail.com" method="POST">
+                <form id="main-form" action="https://formsubmit.co/seninmailin@gmail.com" method="POST" onsubmit="return validateMaintenance()">
                     <input type="hidden" name="_captcha" value="false">
-                    <input type="hidden" name="_subject" value="Yeni Bakım Kaydı: S-MKN.A02.04.27">
                     <input type="hidden" name="_template" value="table">
                     <input type="hidden" id="hidden_personel" name="Personel">
                     <input type="hidden" name="Makine" value="S-MKN.A02.04.27 - El Presi Darbeli">
@@ -56,17 +55,18 @@
                     </select>
 
                     <div id="maddeler_listesi">
-    <div id="grp_1" class="item-group"><span class="period-title">⚡ GÜNLÜK Maddeleri:</span><div class="item"><input type="checkbox" name="Yapilan_Islemler" value="[⚡ GÜNLÜK] Madde-1 Makine etrafı güvenliği alınır.Tabla ve yuva temizliği yapılır."> <span>Madde-1 Makine etrafı güvenliği alınır.Tabla ve yuva temizliği yapılır.</span></div><div class="item"><input type="checkbox" name="Yapilan_Islemler" value="[⚡ GÜNLÜK] Madde-2  Ayar somunları sıkılığı kontrol edilir .Gevşeme varsa hatalı ürün çıkar."> <span>Madde-2  Ayar somunları sıkılığı kontrol edilir .Gevşeme varsa hatalı ürün çıkar.</span></div><div class="item"><input type="checkbox" name="Yapilan_Islemler" value="[⚡ GÜNLÜK] Madde-3 Kalıp ve fikstür sabitliğine bakılır hizalama kontrol edilir.Hareketli parçaların yağlama durumu kontrol edilir."> <span>Madde-3 Kalıp ve fikstür sabitliğine bakılır hizalama kontrol edilir.Hareketli parçaların yağlama durumu kontrol edilir.</span></div><div class="item"><input type="checkbox" name="Yapilan_Islemler" value="[⚡ GÜNLÜK] Madde-4  Geri dönüş yayı kontrol edilir ayrıca kol aşağı indirilip bırakılır kendiliğinden üst konuma gelmesi gerekir."> <span>Madde-4  Geri dönüş yayı kontrol edilir ayrıca kol aşağı indirilip bırakılır kendiliğinden üst konuma gelmesi gerekir.</span></div></div><div id="grp_2" class="item-group"><span class="period-title">📅 HAFTALIK Maddeleri:</span><div class="item"><input type="checkbox" name="Yapilan_Islemler" value="[📅 HAFTALIK] Günlük bakım prosedürü eksiksiz uygulanır."> <span>Günlük bakım prosedürü eksiksiz uygulanır.</span></div><div class="item"><input type="checkbox" name="Yapilan_Islemler" value="[📅 HAFTALIK] Pres tablası ve koç mili (Ram) temizlenir."> <span>Pres tablası ve koç mili (Ram) temizlenir.</span></div><div class="item"><input type="checkbox" name="Yapilan_Islemler" value="[📅 HAFTALIK] Kol geri dönüş yayı tansiyonu (Düşme emniyeti) kontrol edilir."> <span>Kol geri dönüş yayı tansiyonu (Düşme emniyeti) kontrol edilir.</span></div></div><div id="grp_3" class="item-group"><span class="period-title">📅 AYLIK Maddeleri:</span><div class="item"><input type="checkbox" name="Yapilan_Islemler" value="[📅 AYLIK] Haftalık bakım prosedürü eksiksiz uygulanır."> <span>Haftalık bakım prosedürü eksiksiz uygulanır.</span></div><div class="item"><input type="checkbox" name="Yapilan_Islemler" value="[📅 AYLIK] Pres üzerindeki tüm hareketli aksamları birleştiren vidaların sıkılığı kontrol edilir."> <span>Pres üzerindeki tüm hareketli aksamları birleştiren vidaların sıkılığı kontrol edilir.</span></div><div class="item"><input type="checkbox" name="Yapilan_Islemler" value="[📅 AYLIK] Koç mili yatakları ince makine yağı ile yağlanır."> <span>Koç mili yatakları ince makine yağı ile yağlanır.</span></div></div><div id="grp_4" class="item-group"><span class="period-title">📅 3 AYLIK Maddeleri:</span><div class="item"><input type="checkbox" name="Yapilan_Islemler" value="[📅 3 AYLIK] Aylık bakım prosedürü eksiksiz uygulanır."> <span>Aylık bakım prosedürü eksiksiz uygulanır.</span></div><div class="item"><input type="checkbox" name="Yapilan_Islemler" value="[📅 3 AYLIK] Çevirme kolu ve topuz sabitleme cıvataları sıkılır."> <span>Çevirme kolu ve topuz sabitleme cıvataları sıkılır.</span></div><div class="item"><input type="checkbox" name="Yapilan_Islemler" value="[📅 3 AYLIK] Gövde tezgah bağlantı cıvataları kontrol edilir."> <span>Gövde tezgah bağlantı cıvataları kontrol edilir.</span></div></div><div id="grp_5" class="item-group"><span class="period-title">📅 6 AYLIK Maddeleri:</span><div class="item"><input type="checkbox" name="Yapilan_Islemler" value="[📅 6 AYLIK] 3 Aylık bakım prosedürü eksiksiz uygulanır."> <span>3 Aylık bakım prosedürü eksiksiz uygulanır.</span></div><div class="item"><input type="checkbox" name="Yapilan_Islemler" value="[📅 6 AYLIK] Koç mili yanal boşluk kontrolü ve kama ayarı yapılır."> <span>Koç mili yanal boşluk kontrolü ve kama ayarı yapılır.</span></div><div class="item"><input type="checkbox" name="Yapilan_Islemler" value="[📅 6 AYLIK] Dişlilerde kırık/aşınma kontrolü yapılır."> <span>Dişlilerde kırık/aşınma kontrolü yapılır.</span></div></div><div id="grp_6" class="item-group"><span class="period-title">📅 YILLIK Maddeleri:</span><div class="item"><input type="checkbox" name="Yapilan_Islemler" value="[📅 YILLIK] 6 Aylık bakım prosedürü eksiksiz uygulanır."> <span>6 Aylık bakım prosedürü eksiksiz uygulanır.</span></div><div class="item"><input type="checkbox" name="Yapilan_Islemler" value="[📅 YILLIK] Dişli grubu sökülüp temizlenir ve yeniden yağlanır."> <span>Dişli grubu sökülüp temizlenir ve yeniden yağlanır.</span></div><div class="item"><input type="checkbox" name="Yapilan_Islemler" value="[📅 YILLIK] Koç mili dikliği (Gönyesi) kontrol edilir."> <span>Koç mili dikliği (Gönyesi) kontrol edilir.</span></div></div>
+    <div id="grp_1" class="item-group"><span class="period-title">⚡ GÜNLÜK Maddeleri:</span><div class="item"><input type="checkbox" name="Yapilan_Islemler[]" value="[⚡ GÜNLÜK] Madde-1 Makine etrafı güvenliği alınır.Tabla ve yuva temizliği yapılır."> <span>Madde-1 Makine etrafı güvenliği alınır.Tabla ve yuva temizliği yapılır.</span></div><div class="item"><input type="checkbox" name="Yapilan_Islemler[]" value="[⚡ GÜNLÜK] Madde-2  Ayar somunları sıkılığı kontrol edilir .Gevşeme varsa hatalı ürün çıkar."> <span>Madde-2  Ayar somunları sıkılığı kontrol edilir .Gevşeme varsa hatalı ürün çıkar.</span></div><div class="item"><input type="checkbox" name="Yapilan_Islemler[]" value="[⚡ GÜNLÜK] Madde-3 Kalıp ve fikstür sabitliğine bakılır hizalama kontrol edilir.Hareketli parçaların yağlama durumu kontrol edilir."> <span>Madde-3 Kalıp ve fikstür sabitliğine bakılır hizalama kontrol edilir.Hareketli parçaların yağlama durumu kontrol edilir.</span></div><div class="item"><input type="checkbox" name="Yapilan_Islemler[]" value="[⚡ GÜNLÜK] Madde-4  Geri dönüş yayı kontrol edilir ayrıca kol aşağı indirilip bırakılır kendiliğinden üst konuma gelmesi gerekir."> <span>Madde-4  Geri dönüş yayı kontrol edilir ayrıca kol aşağı indirilip bırakılır kendiliğinden üst konuma gelmesi gerekir.</span></div></div><div id="grp_2" class="item-group"><span class="period-title">📅 HAFTALIK Maddeleri:</span><div class="item"><input type="checkbox" name="Yapilan_Islemler[]" value="[📅 HAFTALIK] Günlük bakım prosedürü eksiksiz uygulanır."> <span>Günlük bakım prosedürü eksiksiz uygulanır.</span></div><div class="item"><input type="checkbox" name="Yapilan_Islemler[]" value="[📅 HAFTALIK] Pres tablası ve koç mili (Ram) temizlenir."> <span>Pres tablası ve koç mili (Ram) temizlenir.</span></div><div class="item"><input type="checkbox" name="Yapilan_Islemler[]" value="[📅 HAFTALIK] Kol geri dönüş yayı tansiyonu (Düşme emniyeti) kontrol edilir."> <span>Kol geri dönüş yayı tansiyonu (Düşme emniyeti) kontrol edilir.</span></div></div><div id="grp_3" class="item-group"><span class="period-title">📅 AYLIK Maddeleri:</span><div class="item"><input type="checkbox" name="Yapilan_Islemler[]" value="[📅 AYLIK] Haftalık bakım prosedürü eksiksiz uygulanır."> <span>Haftalık bakım prosedürü eksiksiz uygulanır.</span></div><div class="item"><input type="checkbox" name="Yapilan_Islemler[]" value="[📅 AYLIK] Pres üzerindeki tüm hareketli aksamları birleştiren vidaların sıkılığı kontrol edilir."> <span>Pres üzerindeki tüm hareketli aksamları birleştiren vidaların sıkılığı kontrol edilir.</span></div><div class="item"><input type="checkbox" name="Yapilan_Islemler[]" value="[📅 AYLIK] Koç mili yatakları ince makine yağı ile yağlanır."> <span>Koç mili yatakları ince makine yağı ile yağlanır.</span></div></div><div id="grp_4" class="item-group"><span class="period-title">📅 3 AYLIK Maddeleri:</span><div class="item"><input type="checkbox" name="Yapilan_Islemler[]" value="[📅 3 AYLIK] Aylık bakım prosedürü eksiksiz uygulanır."> <span>Aylık bakım prosedürü eksiksiz uygulanır.</span></div><div class="item"><input type="checkbox" name="Yapilan_Islemler[]" value="[📅 3 AYLIK] Çevirme kolu ve topuz sabitleme cıvataları sıkılır."> <span>Çevirme kolu ve topuz sabitleme cıvataları sıkılır.</span></div><div class="item"><input type="checkbox" name="Yapilan_Islemler[]" value="[📅 3 AYLIK] Gövde tezgah bağlantı cıvataları kontrol edilir."> <span>Gövde tezgah bağlantı cıvataları kontrol edilir.</span></div></div><div id="grp_5" class="item-group"><span class="period-title">📅 6 AYLIK Maddeleri:</span><div class="item"><input type="checkbox" name="Yapilan_Islemler[]" value="[📅 6 AYLIK] 3 Aylık bakım prosedürü eksiksiz uygulanır."> <span>3 Aylık bakım prosedürü eksiksiz uygulanır.</span></div><div class="item"><input type="checkbox" name="Yapilan_Islemler[]" value="[📅 6 AYLIK] Koç mili yanal boşluk kontrolü ve kama ayarı yapılır."> <span>Koç mili yanal boşluk kontrolü ve kama ayarı yapılır.</span></div><div class="item"><input type="checkbox" name="Yapilan_Islemler[]" value="[📅 6 AYLIK] Dişlilerde kırık/aşınma kontrolü yapılır."> <span>Dişlilerde kırık/aşınma kontrolü yapılır.</span></div></div><div id="grp_6" class="item-group"><span class="period-title">📅 YILLIK Maddeleri:</span><div class="item"><input type="checkbox" name="Yapilan_Islemler[]" value="[📅 YILLIK] 6 Aylık bakım prosedürü eksiksiz uygulanır."> <span>6 Aylık bakım prosedürü eksiksiz uygulanır.</span></div><div class="item"><input type="checkbox" name="Yapilan_Islemler[]" value="[📅 YILLIK] Dişli grubu sökülüp temizlenir ve yeniden yağlanır."> <span>Dişli grubu sökülüp temizlenir ve yeniden yağlanır.</span></div><div class="item"><input type="checkbox" name="Yapilan_Islemler[]" value="[📅 YILLIK] Koç mili dikliği (Gönyesi) kontrol edilir."> <span>Koç mili dikliği (Gönyesi) kontrol edilir.</span></div></div>
                     </div>
                     <label>Eksik Hususlar / Notlar:</label>
                     <textarea name="Notlar" placeholder="Varsa arıza veya eksikleri buraya yazın..."></textarea>
-                    <button type="submit" class="btn-submit">✅ KAYDET VE MAİLE GÖNDER</button>
+                    <button type="submit" class="btn-submit">✅ KAYDI TAMAMLA VE GÖNDER</button>
                 </form>
             </div>
         </div>
 
         <script>
         const passwords = {'Ahmet Yılmaz': '1111', 'Mehmet Demir': '2222', 'Sami Kaya': '3333', 'Hasan Kaya': '1234', 'Operatör': '0000'};
+
         function verifyUser() {
             const user = document.getElementById('personel_secici').value;
             const pass = document.getElementById('sifre_input').value;
@@ -76,12 +76,34 @@
                 document.getElementById('hidden_personel').value = user;
             } else { alert("Hatalı kullanıcı veya şifre!"); }
         }
+
         function periyotGuncelle() {
             const seviye = parseInt(document.getElementById("periyotSecici").value);
             for (let i = 1; i <= 6; i++) { document.getElementById("grp_" + i).style.display = "none"; }
             if (seviye) {
                 for (let i = 1; i <= seviye; i++) { document.getElementById("grp_" + i).style.display = "block"; }
             }
+        }
+
+        function validateMaintenance() {
+            const seviye = parseInt(document.getElementById("periyotSecici").value);
+            if (!seviye) { alert("Lütfen bir bakım periyodu seçin!"); return false; }
+
+            // Görünür olan tüm gruplardaki checkbox'ları kontrol et
+            let allChecked = true;
+            for (let i = 1; i <= seviye; i++) {
+                const group = document.getElementById("grp_" + i);
+                const checkboxes = group.querySelectorAll('input[type="checkbox"]');
+                checkboxes.forEach(cb => {
+                    if (!cb.checked) { allChecked = false; }
+                });
+            }
+
+            if (!allChecked) {
+                alert("HATA: Seçilen periyottaki tüm maddeleri işaretlemeniz gerekmektedir. Lütfen kontrol edip eksik maddeleri tamamlayın.");
+                return false;
+            }
+            return true;
         }
         </script>
     </body>
