@@ -18,13 +18,14 @@
             .btn-submit { background: #28a745; color: white; border: none; margin-top: 25px; cursor: pointer; font-weight: bold; }
             .item-group { display: none; margin-top: 15px; border-top: 2px solid #24292e; padding-top: 10px; }
             .item { display: flex; align-items: center; padding: 10px 0; border-bottom: 1px solid #eee; }
-            input[type="checkbox"] { width: 22px; height: 22px; margin-right: 12px; cursor:pointer; }
+            input[type="checkbox"] { width: 26px; height: 26px; margin-right: 12px; cursor:pointer; }
             .period-title { background: #e9ecef; padding: 5px 10px; border-radius: 4px; font-size: 0.9em; color: #003366; display: block; margin-top: 10px; font-weight:bold; }
+            .error-box { color: #dc3545; background: #f8d7da; padding: 10px; border-radius: 6px; display: none; margin-top: 15px; font-weight: bold; text-align: center; }
         </style>
     </head>
     <body>
         <div class="card">
-            <div class="header"><h2>Koli Streç Makinası</h2><p>S-MKN.A01.10.01</p></div>
+            <div class="header"><h2 style="margin:0;">Koli Streç Makinası</h2><p style="margin:5px 0 0 0;">S-MKN.A01.10.01</p></div>
             <div class="content">
                 <div id="login-section">
                     <label>Personel Seçin:</label>
@@ -37,7 +38,7 @@
                     <button type="button" class="btn-login" onclick="verifyUser()">GİRİŞ YAP</button>
                 </div>
 
-                <form id="main-form" action="https://formsubmit.co/seninmailin@gmail.com" method="POST" onsubmit="return validateMaintenance()">
+                <form id="main-form" action="https://formsubmit.co/haskaya2941@gmail.com" method="POST" onsubmit="return validateMaintenance()">
                     <input type="hidden" name="_captcha" value="false">
                     <input type="hidden" name="_template" value="table">
                     <input type="hidden" id="hidden_personel" name="Personel">
@@ -57,8 +58,11 @@
                     <div id="maddeler_listesi">
     <div id="grp_1" class="item-group"><span class="period-title">⚡ GÜNLÜK Maddeleri:</span></div><div id="grp_2" class="item-group"><span class="period-title">📅 HAFTALIK Maddeleri:</span></div><div id="grp_3" class="item-group"><span class="period-title">📅 AYLIK Maddeleri:</span></div><div id="grp_4" class="item-group"><span class="period-title">📅 3 AYLIK Maddeleri:</span></div><div id="grp_5" class="item-group"><span class="period-title">📅 6 AYLIK Maddeleri:</span></div><div id="grp_6" class="item-group"><span class="period-title">📅 YILLIK Maddeleri:</span></div>
                     </div>
-                    <label>Eksik Hususlar / Notlar:</label>
-                    <textarea name="Notlar" placeholder="Varsa arıza veya eksikleri buraya yazın..."></textarea>
+                    <div id="error-box" class="error-box">⚠️ Lütfen listedeki tüm maddeleri işaretleyin!</div>
+                    
+                    <label>Notlar / Eksik Hususlar:</label>
+                    <textarea name="Notlar" placeholder="Varsa arıza veya eksikleri yazın..."></textarea>
+
                     <button type="submit" class="btn-submit">✅ KAYDI TAMAMLA VE GÖNDER</button>
                 </form>
             </div>
@@ -74,35 +78,46 @@
                 document.getElementById('login-section').style.display = 'none';
                 document.getElementById('main-form').style.display = 'block';
                 document.getElementById('hidden_personel').value = user;
-            } else { alert("Hatalı kullanıcı veya şifre!"); }
+            } else { alert("Hatalı şifre!"); }
         }
 
         function periyotGuncelle() {
             const seviye = parseInt(document.getElementById("periyotSecici").value);
-            for (let i = 1; i <= 6; i++) { document.getElementById("grp_" + i).style.display = "none"; }
+            const groups = document.querySelectorAll('.item-group');
+            groups.forEach(g => g.style.display = 'none');
+            
             if (seviye) {
-                for (let i = 1; i <= seviye; i++) { document.getElementById("grp_" + i).style.display = "block"; }
+                for (let i = 1; i <= seviye; i++) {
+                    const target = document.getElementById("grp_" + i);
+                    if(target) target.style.display = "block";
+                }
             }
         }
 
         function validateMaintenance() {
             const seviye = parseInt(document.getElementById("periyotSecici").value);
-            if (!seviye) { alert("Lütfen bir bakım periyodu seçin!"); return false; }
-
-            // Görünür olan tüm gruplardaki checkbox'ları kontrol et
-            let allChecked = true;
+            const errorBox = document.getElementById("error-box");
+            
+            let currentVisibleCheckboxes = [];
             for (let i = 1; i <= seviye; i++) {
                 const group = document.getElementById("grp_" + i);
-                const checkboxes = group.querySelectorAll('input[type="checkbox"]');
-                checkboxes.forEach(cb => {
-                    if (!cb.checked) { allChecked = false; }
-                });
+                if (group) {
+                    const checks = group.querySelectorAll('.chk-item');
+                    checks.forEach(c => currentVisibleCheckboxes.push(c));
+                }
             }
 
+            // Herhangi bir kutu işaretlenmemiş mi kontrol et
+            const allChecked = currentVisibleCheckboxes.every(cb => cb.checked);
+
             if (!allChecked) {
-                alert("HATA: Seçilen periyottaki tüm maddeleri işaretlemeniz gerekmektedir. Lütfen kontrol edip eksik maddeleri tamamlayın.");
+                errorBox.style.display = "block";
+                window.scrollTo(0, document.body.scrollHeight);
+                alert("HATA: Seçtiğiniz periyoda ait tüm maddeleri işaretlemeniz zorunludur!");
                 return false;
             }
+            
+            errorBox.style.display = "none";
             return true;
         }
         </script>

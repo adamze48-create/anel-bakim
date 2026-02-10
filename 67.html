@@ -18,13 +18,14 @@
             .btn-submit { background: #28a745; color: white; border: none; margin-top: 25px; cursor: pointer; font-weight: bold; }
             .item-group { display: none; margin-top: 15px; border-top: 2px solid #24292e; padding-top: 10px; }
             .item { display: flex; align-items: center; padding: 10px 0; border-bottom: 1px solid #eee; }
-            input[type="checkbox"] { width: 22px; height: 22px; margin-right: 12px; cursor:pointer; }
+            input[type="checkbox"] { width: 26px; height: 26px; margin-right: 12px; cursor:pointer; }
             .period-title { background: #e9ecef; padding: 5px 10px; border-radius: 4px; font-size: 0.9em; color: #003366; display: block; margin-top: 10px; font-weight:bold; }
+            .error-box { color: #dc3545; background: #f8d7da; padding: 10px; border-radius: 6px; display: none; margin-top: 15px; font-weight: bold; text-align: center; }
         </style>
     </head>
     <body>
         <div class="card">
-            <div class="header"><h2>Punta Makinesi (Çevirmeli-2)</h2><p>S-MKN.A01.02.07</p></div>
+            <div class="header"><h2 style="margin:0;">Punta Makinesi (Çevirmeli-2)</h2><p style="margin:5px 0 0 0;">S-MKN.A01.02.07</p></div>
             <div class="content">
                 <div id="login-section">
                     <label>Personel Seçin:</label>
@@ -37,7 +38,7 @@
                     <button type="button" class="btn-login" onclick="verifyUser()">GİRİŞ YAP</button>
                 </div>
 
-                <form id="main-form" action="https://formsubmit.co/seninmailin@gmail.com" method="POST" onsubmit="return validateMaintenance()">
+                <form id="main-form" action="https://formsubmit.co/haskaya2941@gmail.com" method="POST" onsubmit="return validateMaintenance()">
                     <input type="hidden" name="_captcha" value="false">
                     <input type="hidden" name="_template" value="table">
                     <input type="hidden" id="hidden_personel" name="Personel">
@@ -55,10 +56,13 @@
                     </select>
 
                     <div id="maddeler_listesi">
-    <div id="grp_1" class="item-group"><span class="period-title">⚡ GÜNLÜK Maddeleri:</span><div class="item"><input type="checkbox" name="Yapilan_Islemler[]" value="[⚡ GÜNLÜK] Madde-1 Makine çalışılacak bölgesi kontrol edilerek ortam çalışmaya uygun hale getirilir."> <span>Madde-1 Makine çalışılacak bölgesi kontrol edilerek ortam çalışmaya uygun hale getirilir.</span></div><div class="item"><input type="checkbox" name="Yapilan_Islemler[]" value="[⚡ GÜNLÜK] Madde-2 Soğutma suyu , hava  bağlantıları kontrol edilir.problem varsa yetkiliye bildirilir."> <span>Madde-2 Soğutma suyu , hava  bağlantıları kontrol edilir.problem varsa yetkiliye bildirilir.</span></div><div class="item"><input type="checkbox" name="Yapilan_Islemler[]" value="[⚡ GÜNLÜK] Madde-3 Punta kaynak uçları kontrol edilir,yanma,çatlama aşınma varsa tamirini yaptırılır."> <span>Madde-3 Punta kaynak uçları kontrol edilir,yanma,çatlama aşınma varsa tamirini yaptırılır.</span></div><div class="item"><input type="checkbox" name="Yapilan_Islemler[]" value="[⚡ GÜNLÜK] Madde-4 Dış bölgede çalışan yaprak bakır baraları kontrol et.Yırtılma , gevşeme ,siyahlaşma varsa yetkiliye bildirerek tamirini sağla."> <span>Madde-4 Dış bölgede çalışan yaprak bakır baraları kontrol et.Yırtılma , gevşeme ,siyahlaşma varsa yetkiliye bildirerek tamirini sağla.</span></div></div><div id="grp_2" class="item-group"><span class="period-title">📅 HAFTALIK Maddeleri:</span><div class="item"><input type="checkbox" name="Yapilan_Islemler[]" value="[📅 HAFTALIK] Günlük bakım prosedürü eksiksiz uygulanır."> <span>Günlük bakım prosedürü eksiksiz uygulanır.</span></div><div class="item"><input type="checkbox" name="Yapilan_Islemler[]" value="[📅 HAFTALIK] Bakır kolların ve uçların (Elektrot) bağlantı yerleri temizlenir, oksitlenme (yeşerme) var mı bakılır."> <span>Bakır kolların ve uçların (Elektrot) bağlantı yerleri temizlenir, oksitlenme (yeşerme) var mı bakılır.</span></div><div class="item"><input type="checkbox" name="Yapilan_Islemler[]" value="[📅 HAFTALIK] Su hortumlarında ve rekorlarda çatlak, su kaçağı var mı gözle kontrol edilir."> <span>Su hortumlarında ve rekorlarda çatlak, su kaçağı var mı gözle kontrol edilir.</span></div></div><div id="grp_3" class="item-group"><span class="period-title">📅 AYLIK Maddeleri:</span><div class="item"><input type="checkbox" name="Yapilan_Islemler[]" value="[📅 AYLIK] Haftalık bakım prosedürü eksiksiz uygulanır."> <span>Haftalık bakım prosedürü eksiksiz uygulanır.</span></div><div class="item"><input type="checkbox" name="Yapilan_Islemler[]" value="[📅 AYLIK] Elektrik kablo izolasyonu ve şase bağlantıları kontrol edilir."> <span>Elektrik kablo izolasyonu ve şase bağlantıları kontrol edilir.</span></div><div class="item"><input type="checkbox" name="Yapilan_Islemler[]" value="[📅 AYLIK] Pedal mekanizması (veya ayak butonu) takılıyor mu, kablosunda ezik var mı kontrol edilir."> <span>Pedal mekanizması (veya ayak butonu) takılıyor mu, kablosunda ezik var mı kontrol edilir.</span></div></div><div id="grp_4" class="item-group"><span class="period-title">📅 3 AYLIK Maddeleri:</span><div class="item"><input type="checkbox" name="Yapilan_Islemler[]" value="[📅 3 AYLIK] Aylık bakım prosedürü eksiksiz uygulanır."> <span>Aylık bakım prosedürü eksiksiz uygulanır.</span></div><div class="item"><input type="checkbox" name="Yapilan_Islemler[]" value="[📅 3 AYLIK] Punta uçlarının birbirine tam merkezde (aynı hizada) basıp basmadığı kontrol edilir, kaçıksa ayarlanır."> <span>Punta uçlarının birbirine tam merkezde (aynı hizada) basıp basmadığı kontrol edilir, kaçıksa ayarlanır.</span></div><div class="item"><input type="checkbox" name="Yapilan_Islemler[]" value="[📅 3 AYLIK] Trafo kademe şalterinin (Ayar düğmesi) geçişleri kontrol edilir, gevşeklik varsa sıkılır."> <span>Trafo kademe şalterinin (Ayar düğmesi) geçişleri kontrol edilir, gevşeklik varsa sıkılır.</span></div></div><div id="grp_5" class="item-group"><span class="period-title">📅 6 AYLIK Maddeleri:</span><div class="item"><input type="checkbox" name="Yapilan_Islemler[]" value="[📅 6 AYLIK] 3 Aylık bakım prosedürü eksiksiz uygulanır."> <span>3 Aylık bakım prosedürü eksiksiz uygulanır.</span></div><div class="item"><input type="checkbox" name="Yapilan_Islemler[]" value="[📅 6 AYLIK] Trafo soğutma kanalları kireçlenme ve tıkanıklığa karşı kontrol edilir."> <span>Trafo soğutma kanalları kireçlenme ve tıkanıklığa karşı kontrol edilir.</span></div><div class="item"><input type="checkbox" name="Yapilan_Islemler[]" value="[📅 6 AYLIK] Pano içi klemens sıkılıkları ve tristör bağlantıları kontrol edilir."> <span>Pano içi klemens sıkılıkları ve tristör bağlantıları kontrol edilir.</span></div></div><div id="grp_6" class="item-group"><span class="period-title">📅 YILLIK Maddeleri:</span><div class="item"><input type="checkbox" name="Yapilan_Islemler[]" value="[📅 YILLIK] 6 Aylık bakım prosedürü eksiksiz uygulanır."> <span>6 Aylık bakım prosedürü eksiksiz uygulanır.</span></div><div class="item"><input type="checkbox" name="Yapilan_Islemler[]" value="[📅 YILLIK] Makine içi açılır, gerekli elektrik aksamların bağlantıları,temizliği yapılır."> <span>Makine içi açılır, gerekli elektrik aksamların bağlantıları,temizliği yapılır.</span></div><div class="item"><input type="checkbox" name="Yapilan_Islemler[]" value="[📅 YILLIK] Trafo sargıları temizlenir ve makinenin genel fonksiyon testi yapılır."> <span>Trafo sargıları temizlenir ve makinenin genel fonksiyon testi yapılır.</span></div></div>
+    <div id="grp_1" class="item-group"><span class="period-title">⚡ GÜNLÜK Maddeleri:</span><div class="item"><input type="checkbox" name="Yapilan_Islemler[]" class="chk-item" value="[⚡ GÜNLÜK] Madde-1 Makine çalışılacak bölgesi kontrol edilerek ortam çalışmaya uygun hale getirilir."> <span>Madde-1 Makine çalışılacak bölgesi kontrol edilerek ortam çalışmaya uygun hale getirilir.</span></div><div class="item"><input type="checkbox" name="Yapilan_Islemler[]" class="chk-item" value="[⚡ GÜNLÜK] Madde-2 Soğutma suyu , hava  bağlantıları kontrol edilir.problem varsa yetkiliye bildirilir."> <span>Madde-2 Soğutma suyu , hava  bağlantıları kontrol edilir.problem varsa yetkiliye bildirilir.</span></div><div class="item"><input type="checkbox" name="Yapilan_Islemler[]" class="chk-item" value="[⚡ GÜNLÜK] Madde-3 Punta kaynak uçları kontrol edilir,yanma,çatlama aşınma varsa tamirini yaptırılır."> <span>Madde-3 Punta kaynak uçları kontrol edilir,yanma,çatlama aşınma varsa tamirini yaptırılır.</span></div><div class="item"><input type="checkbox" name="Yapilan_Islemler[]" class="chk-item" value="[⚡ GÜNLÜK] Madde-4 Dış bölgede çalışan yaprak bakır baraları kontrol et.Yırtılma , gevşeme ,siyahlaşma varsa yetkiliye bildirerek tamirini sağla."> <span>Madde-4 Dış bölgede çalışan yaprak bakır baraları kontrol et.Yırtılma , gevşeme ,siyahlaşma varsa yetkiliye bildirerek tamirini sağla.</span></div></div><div id="grp_2" class="item-group"><span class="period-title">📅 HAFTALIK Maddeleri:</span><div class="item"><input type="checkbox" name="Yapilan_Islemler[]" class="chk-item" value="[📅 HAFTALIK] Günlük bakım prosedürü eksiksiz uygulanır."> <span>Günlük bakım prosedürü eksiksiz uygulanır.</span></div><div class="item"><input type="checkbox" name="Yapilan_Islemler[]" class="chk-item" value="[📅 HAFTALIK] Bakır kolların ve uçların (Elektrot) bağlantı yerleri temizlenir, oksitlenme (yeşerme) var mı bakılır."> <span>Bakır kolların ve uçların (Elektrot) bağlantı yerleri temizlenir, oksitlenme (yeşerme) var mı bakılır.</span></div><div class="item"><input type="checkbox" name="Yapilan_Islemler[]" class="chk-item" value="[📅 HAFTALIK] Su hortumlarında ve rekorlarda çatlak, su kaçağı var mı gözle kontrol edilir."> <span>Su hortumlarında ve rekorlarda çatlak, su kaçağı var mı gözle kontrol edilir.</span></div></div><div id="grp_3" class="item-group"><span class="period-title">📅 AYLIK Maddeleri:</span><div class="item"><input type="checkbox" name="Yapilan_Islemler[]" class="chk-item" value="[📅 AYLIK] Haftalık bakım prosedürü eksiksiz uygulanır."> <span>Haftalık bakım prosedürü eksiksiz uygulanır.</span></div><div class="item"><input type="checkbox" name="Yapilan_Islemler[]" class="chk-item" value="[📅 AYLIK] Elektrik kablo izolasyonu ve şase bağlantıları kontrol edilir."> <span>Elektrik kablo izolasyonu ve şase bağlantıları kontrol edilir.</span></div><div class="item"><input type="checkbox" name="Yapilan_Islemler[]" class="chk-item" value="[📅 AYLIK] Pedal mekanizması (veya ayak butonu) takılıyor mu, kablosunda ezik var mı kontrol edilir."> <span>Pedal mekanizması (veya ayak butonu) takılıyor mu, kablosunda ezik var mı kontrol edilir.</span></div></div><div id="grp_4" class="item-group"><span class="period-title">📅 3 AYLIK Maddeleri:</span><div class="item"><input type="checkbox" name="Yapilan_Islemler[]" class="chk-item" value="[📅 3 AYLIK] Aylık bakım prosedürü eksiksiz uygulanır."> <span>Aylık bakım prosedürü eksiksiz uygulanır.</span></div><div class="item"><input type="checkbox" name="Yapilan_Islemler[]" class="chk-item" value="[📅 3 AYLIK] Punta uçlarının birbirine tam merkezde (aynı hizada) basıp basmadığı kontrol edilir, kaçıksa ayarlanır."> <span>Punta uçlarının birbirine tam merkezde (aynı hizada) basıp basmadığı kontrol edilir, kaçıksa ayarlanır.</span></div><div class="item"><input type="checkbox" name="Yapilan_Islemler[]" class="chk-item" value="[📅 3 AYLIK] Trafo kademe şalterinin (Ayar düğmesi) geçişleri kontrol edilir, gevşeklik varsa sıkılır."> <span>Trafo kademe şalterinin (Ayar düğmesi) geçişleri kontrol edilir, gevşeklik varsa sıkılır.</span></div></div><div id="grp_5" class="item-group"><span class="period-title">📅 6 AYLIK Maddeleri:</span><div class="item"><input type="checkbox" name="Yapilan_Islemler[]" class="chk-item" value="[📅 6 AYLIK] 3 Aylık bakım prosedürü eksiksiz uygulanır."> <span>3 Aylık bakım prosedürü eksiksiz uygulanır.</span></div><div class="item"><input type="checkbox" name="Yapilan_Islemler[]" class="chk-item" value="[📅 6 AYLIK] Trafo soğutma kanalları kireçlenme ve tıkanıklığa karşı kontrol edilir."> <span>Trafo soğutma kanalları kireçlenme ve tıkanıklığa karşı kontrol edilir.</span></div><div class="item"><input type="checkbox" name="Yapilan_Islemler[]" class="chk-item" value="[📅 6 AYLIK] Pano içi klemens sıkılıkları ve tristör bağlantıları kontrol edilir."> <span>Pano içi klemens sıkılıkları ve tristör bağlantıları kontrol edilir.</span></div></div><div id="grp_6" class="item-group"><span class="period-title">📅 YILLIK Maddeleri:</span><div class="item"><input type="checkbox" name="Yapilan_Islemler[]" class="chk-item" value="[📅 YILLIK] 6 Aylık bakım prosedürü eksiksiz uygulanır."> <span>6 Aylık bakım prosedürü eksiksiz uygulanır.</span></div><div class="item"><input type="checkbox" name="Yapilan_Islemler[]" class="chk-item" value="[📅 YILLIK] Makine içi açılır, gerekli elektrik aksamların bağlantıları,temizliği yapılır."> <span>Makine içi açılır, gerekli elektrik aksamların bağlantıları,temizliği yapılır.</span></div><div class="item"><input type="checkbox" name="Yapilan_Islemler[]" class="chk-item" value="[📅 YILLIK] Trafo sargıları temizlenir ve makinenin genel fonksiyon testi yapılır."> <span>Trafo sargıları temizlenir ve makinenin genel fonksiyon testi yapılır.</span></div></div>
                     </div>
-                    <label>Eksik Hususlar / Notlar:</label>
-                    <textarea name="Notlar" placeholder="Varsa arıza veya eksikleri buraya yazın..."></textarea>
+                    <div id="error-box" class="error-box">⚠️ Lütfen listedeki tüm maddeleri işaretleyin!</div>
+                    
+                    <label>Notlar / Eksik Hususlar:</label>
+                    <textarea name="Notlar" placeholder="Varsa arıza veya eksikleri yazın..."></textarea>
+
                     <button type="submit" class="btn-submit">✅ KAYDI TAMAMLA VE GÖNDER</button>
                 </form>
             </div>
@@ -74,35 +78,46 @@
                 document.getElementById('login-section').style.display = 'none';
                 document.getElementById('main-form').style.display = 'block';
                 document.getElementById('hidden_personel').value = user;
-            } else { alert("Hatalı kullanıcı veya şifre!"); }
+            } else { alert("Hatalı şifre!"); }
         }
 
         function periyotGuncelle() {
             const seviye = parseInt(document.getElementById("periyotSecici").value);
-            for (let i = 1; i <= 6; i++) { document.getElementById("grp_" + i).style.display = "none"; }
+            const groups = document.querySelectorAll('.item-group');
+            groups.forEach(g => g.style.display = 'none');
+            
             if (seviye) {
-                for (let i = 1; i <= seviye; i++) { document.getElementById("grp_" + i).style.display = "block"; }
+                for (let i = 1; i <= seviye; i++) {
+                    const target = document.getElementById("grp_" + i);
+                    if(target) target.style.display = "block";
+                }
             }
         }
 
         function validateMaintenance() {
             const seviye = parseInt(document.getElementById("periyotSecici").value);
-            if (!seviye) { alert("Lütfen bir bakım periyodu seçin!"); return false; }
-
-            // Görünür olan tüm gruplardaki checkbox'ları kontrol et
-            let allChecked = true;
+            const errorBox = document.getElementById("error-box");
+            
+            let currentVisibleCheckboxes = [];
             for (let i = 1; i <= seviye; i++) {
                 const group = document.getElementById("grp_" + i);
-                const checkboxes = group.querySelectorAll('input[type="checkbox"]');
-                checkboxes.forEach(cb => {
-                    if (!cb.checked) { allChecked = false; }
-                });
+                if (group) {
+                    const checks = group.querySelectorAll('.chk-item');
+                    checks.forEach(c => currentVisibleCheckboxes.push(c));
+                }
             }
 
+            // Herhangi bir kutu işaretlenmemiş mi kontrol et
+            const allChecked = currentVisibleCheckboxes.every(cb => cb.checked);
+
             if (!allChecked) {
-                alert("HATA: Seçilen periyottaki tüm maddeleri işaretlemeniz gerekmektedir. Lütfen kontrol edip eksik maddeleri tamamlayın.");
+                errorBox.style.display = "block";
+                window.scrollTo(0, document.body.scrollHeight);
+                alert("HATA: Seçtiğiniz periyoda ait tüm maddeleri işaretlemeniz zorunludur!");
                 return false;
             }
+            
+            errorBox.style.display = "none";
             return true;
         }
         </script>
