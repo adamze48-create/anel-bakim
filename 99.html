@@ -1,0 +1,102 @@
+
+    <!DOCTYPE html>
+    <html lang="tr">
+    <head>
+        <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Bakım Formu - S-MKN.A01.07.08</title>
+        <style>
+            body { font-family: 'Segoe UI', sans-serif; background: #f0f2f5; padding: 15px; margin: 0; }
+            .card { background: white; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); max-width: 500px; margin: auto; overflow: hidden; }
+            .header { background: #24292e; color: white; padding: 20px; text-align: center; }
+            .content { padding: 20px; }
+            label { display: block; margin-top: 15px; font-weight: bold; color: #333; }
+            select, input, textarea, button { width: 100%; padding: 12px; margin-top: 8px; border-radius: 6px; border: 1px solid #ddd; font-size: 16px; box-sizing: border-box; }
+            textarea { min-height: 80px; font-family: inherit; }
+            
+            #login-section { border-bottom: 2px dashed #eee; padding-bottom: 20px; }
+            #main-form { display: none; }
+            
+            .btn-login { background: #24292e; color: white; border: none; font-weight: bold; }
+            .btn-submit { background: #28a745; color: white; border: none; margin-top: 25px; cursor: pointer; font-weight: bold; }
+            
+            .item-group { display: none; margin-top: 15px; border-top: 2px solid #24292e; padding-top: 10px; }
+            .item { display: flex; align-items: center; padding: 10px 0; border-bottom: 1px solid #eee; }
+            input[type="checkbox"] { width: 22px; height: 22px; margin-right: 12px; }
+            .period-title { background: #e9ecef; padding: 5px 10px; border-radius: 4px; font-size: 0.9em; color: #003366; display: block; margin-top: 10px; }
+        </style>
+    </head>
+    <body>
+        <div class="card">
+            <div class="header"><h2 style="margin:0;">Kablo Kesme Makinesi (FHC 7515 C)(Kablolu Sinyal)</h2><p style="margin:5px 0 0 0;">S-MKN.A01.07.08</p></div>
+            <div class="content">
+                
+                <div id="login-section">
+                    <label>Personel Seçin:</label>
+                    <select id="personel_secici">
+                        <option value="">İsim seçin...</option>
+                        <option value="Ahmet Yılmaz">Ahmet Yılmaz</option><option value="Mehmet Demir">Mehmet Demir</option><option value="Sami Kaya">Sami Kaya</option><option value="Hasan Kaya">Hasan Kaya</option><option value="Operatör">Operatör</option>
+                    </select>
+                    <label>Şifre:</label>
+                    <input type="password" id="sifre_input" placeholder="Şifrenizi girin">
+                    <button type="button" class="btn-login" onclick="verifyUser()">GİRİŞ YAP</button>
+                </div>
+
+                <form id="main-form" action="https://formsubmit.co/haskaya2941@gmail.com" method="POST">
+                    
+                    <input type="hidden" name="_captcha" value="false">
+                    <input type="hidden" name="_subject" value="Bakım Kaydı: S-MKN.A01.07.08">
+                    <input type="hidden" name="_template" value="table">
+                    
+                    <input type="hidden" id="hidden_personel" name="Personel">
+                    <input type="hidden" name="Makine" value="S-MKN.A01.07.08 - Kablo Kesme Makinesi (FHC 7515 C)(Kablolu Sinyal)">
+                    
+                    <label>Bakım Tipi Seçin:</label>
+                    <select id="periyotSecici" name="Periyot" required onchange="periyotGuncelle()">
+                        <option value="">Seçiniz...</option>
+                        <option value="1">Günlük Kontrol</option>
+                        <option value="2">Haftalık Bakım (+Günlük)</option>
+                        <option value="3">Aylık Bakım (+Haftalık...)</option>
+                        <option value="4">3 Aylık Bakım (+Aylık...)</option>
+                        <option value="5">6 Aylık Bakım (+...)</option>
+                        <option value="6">Yıllık Bakım (HEPSİ)</option>
+                    </select>
+
+                    <div id="maddeler_listesi">
+    <div id="grp_1" class="item-group"><span class="period-title">⚡ GÜNLÜK</span><div class="item"><input type="checkbox" name="Yapilan_Islemler" value="[⚡ GÜNLÜK] Madde-1 Çalışma öncesi makine çevresi temizlenir,işle ilgili olmayan malzemeler kaldırılır."> <span>Madde-1 Çalışma öncesi makine çevresi temizlenir,işle ilgili olmayan malzemeler kaldırılır.</span></div><div class="item"><input type="checkbox" name="Yapilan_Islemler" value="[⚡ GÜNLÜK] Madde-2 Makinanın enerji besleme noktası kontrol edilir."> <span>Madde-2 Makinanın enerji besleme noktası kontrol edilir.</span></div><div class="item"><input type="checkbox" name="Yapilan_Islemler" value="[⚡ GÜNLÜK] Madde-3 Kesilecek kablo sarımı makinaya rahat akış yapacak şekilde yerleştirilir.(Aksi durumda büyük sarımlarda uygun olmayan mesafede ölçülerin ayarsız olmasına sebebiyet verilir.)"> <span>Madde-3 Kesilecek kablo sarımı makinaya rahat akış yapacak şekilde yerleştirilir.(Aksi durumda büyük sarımlarda uygun olmayan mesafede ölçülerin ayarsız olmasına sebebiyet verilir.)</span></div><div class="item"><input type="checkbox" name="Yapilan_Islemler" value="[⚡ GÜNLÜK] Madde-4 Makinanın bıçak ve kablo yolu üzerindeki tüm tırtıklı diskler kontrol edilir ve temizlenir."> <span>Madde-4 Makinanın bıçak ve kablo yolu üzerindeki tüm tırtıklı diskler kontrol edilir ve temizlenir.</span></div><div class="item"><input type="checkbox" name="Yapilan_Islemler" value="[⚡ GÜNLÜK] Madde-5 Makine iç havalandırmasının çalışıp çalışmadığı kontrol edilir."> <span>Madde-5 Makine iç havalandırmasının çalışıp çalışmadığı kontrol edilir.</span></div></div><div id="grp_2" class="item-group"><span class="period-title">📅 HAFTALIK</span><div class="item"><input type="checkbox" name="Yapilan_Islemler" value="[📅 HAFTALIK] Günlük bakım prosedürü eksiksiz uygulanır."> <span>Günlük bakım prosedürü eksiksiz uygulanır.</span></div><div class="item"><input type="checkbox" name="Yapilan_Islemler" value="[📅 HAFTALIK] Bıçak kafası ve kablo kılavuzları izolasyon tozlarından fırça/vakumla temizlenir."> <span>Bıçak kafası ve kablo kılavuzları izolasyon tozlarından fırça/vakumla temizlenir.</span></div><div class="item"><input type="checkbox" name="Yapilan_Islemler" value="[📅 HAFTALIK] Bıçak ağızlarında kırık, çentik veya çapaklanma kontrolü yapılır."> <span>Bıçak ağızlarında kırık, çentik veya çapaklanma kontrolü yapılır.</span></div></div><div id="grp_3" class="item-group"><span class="period-title">📅 AYLIK</span><div class="item"><input type="checkbox" name="Yapilan_Islemler" value="[📅 AYLIK] Haftalık bakım prosedürü eksiksiz uygulanır."> <span>Haftalık bakım prosedürü eksiksiz uygulanır.</span></div><div class="item"><input type="checkbox" name="Yapilan_Islemler" value="[📅 AYLIK] Sürücü makaraların (Rollers) aşınma ve kaydırma kontrolü yapılır."> <span>Sürücü makaraların (Rollers) aşınma ve kaydırma kontrolü yapılır.</span></div><div class="item"><input type="checkbox" name="Yapilan_Islemler" value="[📅 AYLIK] Hareketli kızak milleri ve bıçak bloğu rayları ince yağ ile yağlanır."> <span>Hareketli kızak milleri ve bıçak bloğu rayları ince yağ ile yağlanır.</span></div></div><div id="grp_4" class="item-group"><span class="period-title">📅 3 AYLIK</span><div class="item"><input type="checkbox" name="Yapilan_Islemler" value="[📅 3 AYLIK] Aylık bakım prosedürü eksiksiz uygulanır."> <span>Aylık bakım prosedürü eksiksiz uygulanır.</span></div><div class="item"><input type="checkbox" name="Yapilan_Islemler" value="[📅 3 AYLIK] Kesim ve soyma boyu hassasiyeti (Kalibrasyon) numune üzerinden doğrulanır."> <span>Kesim ve soyma boyu hassasiyeti (Kalibrasyon) numune üzerinden doğrulanır.</span></div><div class="item"><input type="checkbox" name="Yapilan_Islemler" value="[📅 3 AYLIK] Pnömatik şartlandırıcı filtresi temizlenir ve hava kaçak kontrolü yapılır."> <span>Pnömatik şartlandırıcı filtresi temizlenir ve hava kaçak kontrolü yapılır.</span></div></div><div id="grp_5" class="item-group"><span class="period-title">📅 6 AYLIK</span><div class="item"><input type="checkbox" name="Yapilan_Islemler" value="[📅 6 AYLIK] 3 Aylık bakım prosedürü eksiksiz uygulanır."> <span>3 Aylık bakım prosedürü eksiksiz uygulanır.</span></div><div class="item"><input type="checkbox" name="Yapilan_Islemler" value="[📅 6 AYLIK] Körelmiş bıçaklar değiştirilir ve kesim performansı test edilir."> <span>Körelmiş bıçaklar değiştirilir ve kesim performansı test edilir.</span></div><div class="item"><input type="checkbox" name="Yapilan_Islemler" value="[📅 6 AYLIK] HMI ekran dokunmatiği temizlenir ve parametre yedeği (Backup) alınır."> <span>HMI ekran dokunmatiği temizlenir ve parametre yedeği (Backup) alınır.</span></div></div><div id="grp_6" class="item-group"><span class="period-title">📅 YILLIK</span><div class="item"><input type="checkbox" name="Yapilan_Islemler" value="[📅 YILLIK] 6 Aylık bakım prosedürü eksiksiz uygulanır."> <span>6 Aylık bakım prosedürü eksiksiz uygulanır.</span></div><div class="item"><input type="checkbox" name="Yapilan_Islemler" value="[📅 YILLIK] Sürücü motor ve enkoder (Encoder) klemens bağlantıları sıkılır."> <span>Sürücü motor ve enkoder (Encoder) klemens bağlantıları sıkılır.</span></div><div class="item"><input type="checkbox" name="Yapilan_Islemler" value="[📅 YILLIK] Mekanik aksam rulman sesleri ve kayış/dişli boşlukları kontrol edilir."> <span>Mekanik aksam rulman sesleri ve kayış/dişli boşlukları kontrol edilir.</span></div></div>
+                    </div>
+
+                    <label>Eksik Hususlar / Notlar:</label>
+                    <textarea name="Notlar" placeholder="Varsa arıza veya eksikleri yazın..."></textarea>
+
+                    <button type="submit" class="btn-submit">✅ KAYDET VE GÖNDER</button>
+                </form>
+            </div>
+        </div>
+
+        <script>
+        const passwords = {'Ahmet Yılmaz': '1111', 'Mehmet Demir': '2222', 'Sami Kaya': '3333', 'Hasan Kaya': '1234', 'Operatör': '0000'};
+
+        function verifyUser() {
+            const user = document.getElementById('personel_secici').value;
+            const pass = document.getElementById('sifre_input').value;
+            
+            if (user && passwords[user] === pass) {
+                document.getElementById('login-section').style.display = 'none';
+                document.getElementById('main-form').style.display = 'block';
+                document.getElementById('hidden_personel').value = user;
+            } else {
+                alert("Hatalı kullanıcı veya şifre!");
+            }
+        }
+
+        function periyotGuncelle() {
+            const seviye = parseInt(document.getElementById("periyotSecici").value);
+            for (let i = 1; i <= 6; i++) { document.getElementById("grp_" + i).style.display = "none"; }
+            if (seviye) {
+                for (let i = 1; i <= seviye; i++) { document.getElementById("grp_" + i).style.display = "block"; }
+            }
+        }
+        </script>
+    </body>
+    </html>
+    
